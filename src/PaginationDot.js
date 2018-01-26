@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 const styles = {
     root: {
-        height: 14,
-        width: 14,
+        height: 9,
+        width: 9,
         textAlign: 'center',
         cursor: 'pointer',
         border: 0,
@@ -13,11 +12,11 @@ const styles = {
         display: 'inline',
     },
     dot: {
-        border: '1px solid #7E6092',
-        height: 8,
-        width: 8,
+        border: '0.5px solid #7E6092',
+        height: 5,
+        width: 5,
         borderRadius: 5,
-        margin: 2,
+        margin: 1,
     },
     active: {
         backgroundColor: '#7E6092',
@@ -47,11 +46,5 @@ class PaginationDot extends Component {
         );
     }
 }
-
-PaginationDot.propTypes = {
-    active: PropTypes.bool.isRequired,
-    index: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
-};
 
 export default PaginationDot;

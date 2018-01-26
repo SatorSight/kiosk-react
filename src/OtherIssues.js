@@ -1,90 +1,79 @@
 import React, { Component } from "react";
+import fixtures from './fixtures';
+import OwlCarousel from 'react-owl-carousel';
 
-class OtherIssues extends React.Component {
+export default class OtherIssues extends Component {
     render() {
         return (
-            <div style={styles.OtherIssues}>
-                <h3 style={styles.titleOtherIssues}>Другие выпуски</h3>
-                <div style={styles.SwipeableViews}>
+            <div style={styles.otherIssues}>
+                <p style={styles.title}>Другие выпуски</p>
+                <OwlCarousel autoWidth dots={false} >
                     {fixtures.map((fixtures, currentIndex) => {
                         return (
-                            <div style={styles.SwipeableItem} key={String(currentIndex)}>
-                                <div style={styles.innerOtherIssues}>
+                            <div key={String(currentIndex)} style={styles.item} >
+                                <a href={fixtures.url}>
                                     <img src={fixtures.main_image} alt={fixtures.title} style={styles.imgOtherIssues} />
-                                </div>
+                                </a>
                             </div>
                         );
                     })}
-                </div>
-                <div style={styles.fotOtherIssues}>
-                    <button style={styles.buttonOtherIssues}>Смотреть все</button>
+                </OwlCarousel>
+                <div style={styles.fot}>
+                    <a href="#look" style={styles.button}>Смотреть все</a>
                 </div>
             </div>
         );
     }
 }
-
 const styles = {
-    OtherIssues: {
-        width: '100%',
+    item: {
+        marginLeft: '2.5em',
+        paddingBottom: '1em',
+    },
+    otherIssues: {
         position: 'relative',
         backgroundColor: '#F5F5F5',
         overflow: 'hidden',
     },
-    titleOtherIssues: {
-        fontSize: 14,
+    title: {
+        fontSize: '1.5em',
         textTransform: 'uppercase',
-        fontFamily: 'Arial, serif',
+        fontFamily: 'HelveticaNeueCyr, sans-serif',
         fontWeight: 400,
-        padding: '35px 30px 15px 25px',
-        letterSpacing: 3,
+        padding: '3.8em 3em 1.3em 1.6em',
+        letterSpacing: 3.5,
     },
-    SwipeableViews: {
-        padding: '0 0 10px 25px',
-        width: 'auto',
-        overflowX: 'auto',
-        overflowY: 'hidden',
-    },
-    SwipeableItem: {
-        minWidth: 50,
-        height: 150,
-        display: 'table-cell',
-        position: 'relative',
-},
     imgOtherIssues: {
-        height: 150,
-        margin: '0 20px 0 0',
-        borderRadius: 2,
-        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+        borderRadius: '0.2em',
+        boxShadow: '0.1em 0.1em 0.3em rgba(0,0,0,0.3)',
+        overflow: 'hidden',
+        height: '10em',
+        width: 'auto',
     },
-    fotOtherIssues: {
-        margin: '5px 25px 20px',
+    fot: {
+        padding: '0.5em 2.5em 2em',
         textAlign: 'center',
+        backgroundColor: '#F5F5F5',
+        position: 'relative',
+        zIndex: 20,
+        clear: 'both',
     },
-    buttonOtherIssues: {
-        fontSize: 12,
+    button: {
+        fontSize: '1.2em',
+        paddingTop: '0.2em',
+        letterSpacing: 1,
         textTransform: 'uppercase',
-        fontFamily: 'Arial, serif',
+        textDecoration: 'none',
+        color: '#000',
+        fontFamily: 'HelveticaNeueCyr, sans-serif',
+        display: 'block',
         fontWeight: 400,
-        width: '100%',
         maxWidth: 400,
         margin: '0 auto',
-        borderRadius: 20,
-        lineHeight: 2.5,
-        letterSpacing: 3,
+        borderRadius: '2em',
+        lineHeight: '3em',
         border: '1px solid #E0E0E0',
         backgroundColor: '#F5F5F5',
     },
 };
-
-const fixtures = [
-    {id: 1, title: 'Мисс MAXIM 2017', text: 'Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грутЯ есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грутЯ есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут ....', cover_image: '/images/1/img.jpg', main_image: 'images/1/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-    {id: 2, title: 'Мисс MAXIM 2016', text: 'Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ ....', cover_image: '/images/2/img.jpg', main_image: 'images/2/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-    {id: 3, title: 'Мисс MAXIM 2018', text: 'Принцесса Пупырчатого Королевства, Принцесса Бугристого Пространства (сокращенно ППК и Пупырка ), также известна как Принцесса Пупырка (англ. Lumpy Space Princess) — дочь Королевы и Короля Бугристого Пространства. Является одной из трех самых часто встречающихся в мультфильме ...', cover_image: '/images/3/img.gif', main_image: 'images/3/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-    {id: 4, title: 'Мисс MAXIM 2017', text: 'Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грутЯ есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грутЯ есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут Я есть грут ....', cover_image: '/images/1/img.jpg', main_image: 'images/1/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-    {id: 5, title: 'Мисс MAXIM 2016', text: 'Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ Я ЕСТЬ ГРУТ ....', cover_image: '/images/2/img.jpg', main_image: 'images/2/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-    {id: 6, title: 'Мисс MAXIM 2018', text: 'Принцесса Пупырчатого Королевства, Принцесса Бугристого Пространства (сокращенно ППК и Пупырка ), также известна как Принцесса Пупырка (англ. Lumpy Space Princess) — дочь Королевы и Короля Бугристого Пространства. Является одной из трех самых часто встречающихся в мультфильме ...', cover_image: '/images/3/img.gif', main_image: 'images/3/main_img.jpg', name: 'Maxim', date: 'Ноябрь 2017'},
-];
-
-export default OtherIssues;
 

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import PaginationDot from './PaginationDot';
 
 const styles = {
     root: {
         position: 'absolute',
-        width: '20%',
+        width: '21%',
         textAlign: 'center',
-        bottom: 65,
-        left: 30,
+        bottom: 25,
+        left: '1.5em',
         flexDirection: 'row',
     },
 };
@@ -32,11 +31,5 @@ class Pagination extends Component {
         return <div style={styles.root}>{children}</div>;
     }
 }
-
-Pagination.propTypes = {
-    dots: PropTypes.number.isRequired,
-    index: PropTypes.number.isRequired,
-    onChangeIndex: PropTypes.func.isRequired,
-};
 
 export default Pagination;
